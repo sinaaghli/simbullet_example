@@ -1,21 +1,22 @@
-SET(PROJECT_NAME car_example)
-PROJECT(${PROJECT_NAME})
+cmake_minimum_required(VERSION 3.0)
+project(simbullet_example)
 
-CMAKE_MINIMUM_REQUIRED(VERSION 3.0.0)
+# find package Foo (example library)
+find_package(simbullet REQUIRED)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
+include_directories(${SIMBULLET_INCLUDE_DIRS})
 
-IF( NOT CMAKE_BUILD_TYPE )
-   SET( CMAKE_BUILD_TYPE Release )
-ENDIF()
+# build type
+set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
+set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS
+             "Debug"
+             "Release"
+             "MinSizeRel"
+             "RelWithDebInfo"
+)
 
-FIND_PACKAGE( simbullet REQUIRED )
+# add binary
+add_executable(car_circle_gui CarCircleGui.cpp)
 
-SET(LIBS "/usr/local/lib/libsimbullet.dylib")
-# find_library(simbullet_LIB NAMES simbullet)
-message("message-> ${simbullet_LIBRARIES}")
-message("message-> ${simbullet_INCLUDE_DIRS}")
-
-include_directories( ${simbullet_INCLUDE_DIRS} )
-ADD_EXECUTABLE( ${PROJECT_NAME} main.cpp)
-target_link_libraries( ${PROJECT_NAME} ${simbullet_LIBRARIES} )
+# add library
+target_link_libraries(car_circle_gui ${SIMBULLET_LIBRARIES})

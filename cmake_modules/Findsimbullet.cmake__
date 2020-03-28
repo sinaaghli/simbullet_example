@@ -1,9 +1,0 @@
-SET( simbullet_LIBRARIES  "/usr/local/lib/libBulletDynamics.dylib;/usr/local/lib/libBulletCollision.dylib;/usr/local/lib/libLinearMath.dylib;/usr/local/lib/libBulletSoftBody.dylib;simbullet" CACHE INTERNAL "${PACKAGE_PKG_NAME} libraries" FORCE )
-SET( simbullet_INCLUDE_DIRS  /Users/sina/code/simbullet/include CACHE INTERNAL "${PACKAGE_PKG_NAME} include directories" FORCE )
-SET( simbullet_LIBRARY_DIRS  CACHE INTERNAL "${PACKAGE_PKG_NAME} library directories" FORCE )
-
-mark_as_advanced( simbullet_LIBRARIES )
-mark_as_advanced( simbullet_LIBRARY_DIRS )
-mark_as_advanced( simbullet_INCLUDE_DIRS )
-
-
