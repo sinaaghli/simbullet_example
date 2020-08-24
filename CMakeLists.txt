@@ -4,8 +4,9 @@ project(simbullet_example)
 # find package Foo (example library)
 find_package(simbullet REQUIRED)
 
-include_directories(${SIMBULLET_INCLUDE_DIRS})
+include_directories(${SIMBULLET_INCLUDE_DIRS} )
 
+message("in->${SIMBULLET_LIBRARIES}")
 # build type
 set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
 set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS
